@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-persistent-storage
+spec:
+  storageClassName: slow
+  persistentVolumeReclaimPolicy: Recycle
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 1Gi
+  nfs:
+    path: /mysql
+    server: nfs01
+
+#  storageClassName: local
+#  capacity:
+#    storage: 10Mi
+#  hostPath:
+#    path: /tmp/mysql
